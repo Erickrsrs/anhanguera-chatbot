@@ -1,0 +1,257 @@
+/* Definição de variáveis de cores para facilitar a manutenção e reutilização */
+:root {
+  --color-background: #202123; /* Cor do fundo principal */
+  --color-background-secondary: #343541; /* Cor do fundo secundário */
+  --color-container-bg: #40414f; /* Cor de fundo dos contêineres */
+  --color-border: #565869; /* Cor das bordas e divisores */
+  --color-primary: #10a37f; /* Cor primária para botões e destaques */
+  --color-primary-hover: #1a7f66; /* Cor de destaque ao passar o mouse */
+  --color-text: #e0e0e0; /* Cor do texto principal */
+  --color-text-secondary: #d1d5db; /* Cor do texto secundário */
+  --color-placeholder: #a0a0a0; /* Cor do texto dos placeholders */
+  --color-assistant-message-bg: #e0e0e0; /* Cor de fundo das mensagens do assistente */
+  --color-assistant-message-text: #202123; /* Cor do texto das mensagens do assistente */
+  --color-user-message-bg: #10a37f; /* Cor de fundo das mensagens do usuário */
+  --color-user-message-text: white; /* Cor do texto das mensagens do usuário */
+}
+
+/* Resetando margens, padding e garantindo que o box-sizing seja aplicado de maneira previsível */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo geral para o body, centralizando o conteúdo e aplicando um fundo gradiente */
+body {
+  font-family: 'Montserrat', sans-serif; /* Fonte padrão */
+  display: flex; /* Utilizado para centralizar o conteúdo */
+  justify-content: center; /* Centralização horizontal */
+  align-items: center; /* Centralização vertical */
+  height: 100vh; /* Altura da tela inteira */
+  background: linear-gradient(
+    to bottom right,
+    var(--color-background),
+    var(--color-background-secondary)
+  ); /* Fundo gradiente */
+  overflow: hidden; /* Evita barras de rolagem */
+  margin: 0; /* Remove margens do body */
+}
+
+/* Estilo do contêiner principal */
+.container {
+  background-color: var(--color-container-bg); /* Fundo do contêiner */
+  border-radius: 12px; /* Borda arredondada */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  padding: 40px; /* Espaçamento interno */
+  width: 100%;
+  max-width: 650px; /* Largura máxima */
+  text-align: center; /* Alinhamento do texto no centro */
+}
+
+/* Estilo do título principal */
+.TitleText {
+  font-size: 32px; /* Tamanho do texto */
+  margin-bottom: 20px; /* Espaçamento inferior */
+  color: var(--color-text); /* Cor do texto */
+  text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+/* Grupo de inputs com margens */
+.input-group {
+  margin-bottom: 20px; /* Espaçamento inferior */
+  text-align: left; /* Alinhamento à esquerda */
+}
+
+/* Estilo para os textos descritivos dos inputs */
+.NomeSiteTxT,
+.FuncionalidadeTxT {
+  font-size: 18px; /* Tamanho do texto */
+  color: var(--color-text-secondary); /* Cor do texto */
+  margin-bottom: 10px; /* Espaçamento inferior */
+  align-items: start; /* Alinhamento superior */
+  display: flex; /* Define flexbox */
+}
+
+/* Estilo dos campos de input */
+.NomeSite,
+.funcionalidade {
+  width: 100%; /* Largura completa */
+  padding: 10px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho do texto */
+  border-radius: 8px; /* Bordas arredondadas */
+  border: 1px solid var(--color-border); /* Cor da borda */
+  background-color: var(--color-background-secondary); /* Fundo do input */
+  color: var(--color-text); /* Cor do texto */
+  margin-bottom: 10px; /* Espaçamento inferior */
+  outline: none; /* Remove a borda padrão de foco */
+  transition: border-color 0.2s; /* Transição suave para o foco */
+}
+
+/* Cor de borda ao focar no input */
+.NomeSite:focus,
+.funcionalidade:focus {
+  border-color: var(--color-primary); /* Altera a cor da borda ao focar */
+}
+
+/* Estilo do botão */
+.button {
+  background-color: var(--color-primary); /* Cor de fundo do botão */
+  color: var(--color-user-message-text); /* Cor do texto do botão */
+  border: none; /* Remove bordas */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 12px; /* Espaçamento interno */
+  font-size: 18px; /* Tamanho do texto */
+  cursor: pointer; /* Muda o cursor para ponteiro ao passar sobre o botão */
+  width: 100%; /* Largura completa */
+  transition: background-color 0.3s ease; /* Transição suave de cor */
+  margin-top: 10px; /* Espaçamento superior */
+}
+
+/* Alteração de cor do botão ao passar o mouse */
+.button:hover {
+  background-color: var(
+    --color-primary-hover
+  ); /* Cor de fundo ao passar o mouse */
+}
+
+/* Caixa de chat */
+.chat-box {
+  width: 100%;
+  max-width: 650px; /* Largura máxima */
+  background-color: var(--color-container-bg); /* Cor de fundo */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  display: flex; /* Flexbox para a caixa de chat */
+  flex-direction: column; /* Itens em coluna */
+  overflow: hidden; /* Evita estouro de conteúdo */
+  max-height: 500px; /* Altura máxima */
+  display: none; /* Inicialmente escondido */
+}
+
+/* Cabeçalho da caixa de chat */
+.chat-header {
+  background-color: var(--color-border); /* Fundo do cabeçalho */
+  color: var(--color-text); /* Cor do texto */
+  padding: 20px; /* Espaçamento interno */
+  text-align: left; /* Alinhamento à esquerda */
+  font-size: 20px; /* Tamanho do texto */
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* Corpo da caixa de chat */
+.chat-body {
+  flex: 1; /* O corpo expande conforme necessário */
+  padding: 10px; /* Espaçamento interno */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Itens em coluna */
+  background-color: var(--color-background-secondary); /* Fundo do corpo */
+  height: 400px; /* Altura definida */
+  max-height: 400px; /* Altura máxima */
+}
+
+/* Estilo dos botões de enviar mensagens */
+.sendMessageBtn {
+  display: block; /* Exibe o botão como bloco */
+}
+
+/* Estilo das mensagens na caixa de chat */
+.messages {
+  overflow-y: auto; /* Permite rolagem vertical */
+  height: 500px; /* Altura da área de mensagens */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Mensagens em coluna */
+}
+
+/* Estilo individual das mensagens */
+.message {
+  margin: 5px 0; /* Margem vertical */
+  max-width: 70%; /* Largura máxima */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  word-wrap: break-word; /* Quebra de palavras longas */
+}
+
+/* Mensagem do assistente */
+.assistant-message {
+  background-color: var(
+    --color-assistant-message-bg
+  ); /* Fundo da mensagem do assistente */
+  align-self: flex-start; /* Alinha à esquerda */
+  color: var(--color-assistant-message-text); /* Cor do texto */
+}
+
+/* Mensagem do usuário */
+.user-message {
+  background-color: var(
+    --color-user-message-bg
+  ); /* Fundo da mensagem do usuário */
+  color: var(--color-user-message-text); /* Cor do texto */
+  align-self: flex-end; /* Alinha à direita */
+}
+
+/* Estilo da área de input do chat */
+.chat-input {
+  display: flex; /* Flexbox */
+  padding: 10px; /* Espaçamento interno */
+  background-color: var(--color-container-bg); /* Fundo da área de input */
+  border-top: 1px solid var(--color-border); /* Borda superior */
+  position: sticky; /* Fixa no final da página */
+  bottom: 0; /* Mantém na parte inferior */
+}
+
+/* Estilo do campo de input de mensagens */
+.chat-input input {
+  flex: 1; /* O input preenche todo o espaço */
+  padding: 10px; /* Espaçamento interno */
+  border: none; /* Remove bordas */
+  outline: none; /* Remove a borda padrão de foco */
+  border-radius: 20px; /* Bordas arredondadas */
+  background-color: var(--color-border); /* Fundo do input */
+  color: var(--color-text); /* Cor do texto */
+  font-size: 16px; /* Tamanho do texto */
+}
+
+/* Estilo do placeholder no input de mensagens */
+.chat-input input::placeholder {
+  color: var(--color-placeholder); /* Cor do placeholder */
+}
+
+/* Botão de enviar mensagem */
+.chat-input button {
+  background-color: var(--color-primary); /* Cor de fundo do botão */
+  color: var(--color-user-message-text); /* Cor do texto */
+  border: none; /* Remove bordas */
+  padding: 10px 20px; /* Espaçamento interno */
+  margin-left: 10px; /* Espaçamento à esquerda */
+  border-radius: 20px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: background-color 0.3s ease, transform 0.4s ease; /* Transições suaves */
+}
+
+/* Ícone no botão */
+.chat-input .icon {
+  height: 15px; /* Altura do ícone */
+  padding: -1px; /* Padding do ícone */
+}
+
+/* Estilo da área de input de mensagens (flexbox) */
+.chat-input .messageInput {
+  border: none; /* Remove bordas */
+  outline: none; /* Remove a borda padrão de foco */
+  align-items: center; /* Alinhamento central */
+  display: flex; /* Flexbox */
+  justify-content: center; /* Centraliza o conteúdo */
+}
+
+/* Efeito de hover no botão de enviar mensagem */
+.chat-input button:hover {
+  background-color: var(--color-primary-hover); /* Cor ao passar o mouse */
+  transform: scale(1.1); /* Aumenta levemente o botão */
+}
+
+/* Status de conexão ou envio */
+.status {
+  color: var(--color-primary); /* Cor do status */
+  font-size: 14px; /* Tamanho do texto do status */
+}

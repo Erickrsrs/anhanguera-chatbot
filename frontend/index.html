@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <link rel="stylesheet" href="styles/chat.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="TitleText">Crie seu Próprio Chat!</h1>
+
+      <label for="NomeSite" class="NomeSiteTxT"
+        >Qual será o nome do chat:</label
+      >
+      <input
+        type="text"
+        class="NomeSite"
+        name="NomeSite"
+        id="chatName"
+        required
+      />
+
+      <label for="funcionalidade" class="FuncionalidadeTxT"
+        >Qual será a funcionalidade:</label
+      >
+      <input
+        type="text"
+        class="funcionalidade"
+        name="funcionalidade"
+        id="chatSystem"
+        required
+      />
+
+      <button class="button" id="createChatBtn">Criar Chat</button>
+    </div>
+
+    <div class="chat-box">
+      <header class="chat-header" id="chat-header">
+        <h1 id="chat-title">Chat Assistente</h1>
+        <p id="chat-status" class="status">Online</p>
+      </header>
+      <div class="chat-body">
+        <div class="messages" id="messages"></div>
+        <div class="chat-input">
+          <input
+            class="messageInput"
+            type="text"
+            id="userInput"
+            placeholder="Digite sua mensagem..."
+          />
+          <button id="sendMessageBtn">
+            <img src="img/up-arrow_2.png" alt="seta" class="icon" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/index.js"></script>
+  </body>
+</html>
